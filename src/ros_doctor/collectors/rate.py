@@ -5,7 +5,6 @@ from dataclasses import dataclass
 
 from ros_doctor.shell import run
 
-
 _RATE_RE = re.compile(r"average rate:\s*([0-9]+(?:\.[0-9]+)?)", re.IGNORECASE)
 
 

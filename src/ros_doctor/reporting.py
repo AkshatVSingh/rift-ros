@@ -2,10 +2,9 @@ from __future__ import annotations
 
 import json
 from collections import Counter
-from typing import Iterable
+from collections.abc import Iterable
 
 from ros_doctor.models import DiagnosticResult, Severity
-
 
 _LABELS = {
     Severity.PASS: "PASS",
