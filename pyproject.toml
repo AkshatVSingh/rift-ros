@@ -3,16 +3,14 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ros-doctor"
-version = "0.7.0"
-description = "Read-only first-pass diagnostics for ROS 2 systems"
+name = "rift-ros"
+version = "0.8.0"
+description = "Offline-first ROS 2 incident forensics for mobile robots"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
-authors = [
-  { name = "Akshat Singh" }
-]
-keywords = ["ros2", "robotics", "diagnostics", "tf", "nav2", "slam"]
+authors = [{ name = "Akshat Singh" }]
+keywords = ["ros2", "robotics", "nav2", "incident", "forensics", "diagnostics", "observability"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
@@ -22,14 +20,14 @@ classifiers = [
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
-  "Topic :: Scientific/Engineering"
+  "Programming Language :: Python :: 3.13",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
 
 [project.scripts]
-ros-doctor = "ros_doctor.cli:main"
+rift = "rift_ros.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -40,3 +38,6 @@ addopts = "-q"
 
 [tool.ruff]
 line-length = 100
+
+[tool.ruff.lint]
+select = ["F"]

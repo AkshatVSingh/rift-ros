@@ -1,0 +1,23 @@
+name: build
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  wheel:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pip build twine
+      - run: python -m build
+      - run: python -m twine check dist/*
+      - run: pip install dist/*.whl
+      - run: rift self-test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rift-ros-dist
+          path: dist/*

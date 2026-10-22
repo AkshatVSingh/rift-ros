@@ -1,7 +1,25 @@
-# Security
+# Security and privacy
 
-Please do not disclose a security-sensitive problem in a public issue.
+RIFT is read-only with respect to robot control, but incident bundles can still contain sensitive operational evidence.
 
-Security-sensitive examples include unexpected command execution, access to files outside the requested diagnostic scope, accidental disclosure of robot data, or behavior that violates the read-only design of the tool.
+Do not attach credentials, private maps, production bags, customer data, proprietary robot configuration, internal hostnames or source code to public issues.
 
-When sharing logs publicly, remove credentials, tokens, internal addresses, private maps, customer data, and proprietary source code.
+## Sharing bundles
+
+Hostnames are excluded from recorder metadata by default. Before external sharing:
+
+```bash
+rift sanitize incident.rift.zip -o share-safe.rift.zip
+rift verify share-safe.rift.zip
+rift inspect share-safe.rift.zip
+```
+
+Sanitization redacts common hostname/user/home-path/IP metadata. It is not a DLP product and cannot recognize every confidential identifier; manual review remains required.
+
+## Archive handling
+
+Packed bundles are verified against an allow-listed file set, checksum/size manifest and conservative uncompressed-size limits before analysis.
+
+## Reporting vulnerabilities
+
+Do not publish security-sensitive robot details in a public issue. Use a private contact channel for vulnerabilities that could expose systems or customer data.

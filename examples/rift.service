@@ -1,0 +1,18 @@
+[Unit]
+Description=RIFT-ROS runtime incident recorder
+After=network.target
+
+[Service]
+Type=simple
+User=robot
+WorkingDirectory=/var/lib/rift
+Environment=ROS_DISTRO=jazzy
+ExecStartPre=/bin/bash -lc 'source /opt/ros/jazzy/setup.bash && source /opt/robot/install/setup.bash && /opt/rift/bin/rift preflight --config /etc/rift/rift.json'
+ExecStart=/bin/bash -lc 'source /opt/ros/jazzy/setup.bash && source /opt/robot/install/setup.bash && exec /opt/rift/bin/rift watch --config /etc/rift/rift.json --forever --status-file /var/lib/rift/status.json --out /var/lib/rift/incidents'
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

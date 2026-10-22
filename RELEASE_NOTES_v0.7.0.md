@@ -1,26 +1,18 @@
-# ROS Doctor Community v0.7.0
+# RIFT-ROS v0.7.0
 
-First public Community release.
+Release focus: multi-robot attribution, recorder health separation, deterministic replay, compatibility reporting and performance-budget enforcement.
 
-## Included
+## Highlights
 
-- ROS 2 environment checks
-- node discovery
-- topic discovery with message types
-- expected node/topic checks
-- basic TF availability checks
-- topic-rate sampling
-- terminal and JSON output
-- script-friendly exit codes
-- unit-test suite
-- GitHub Actions test workflow
+- `rift.config/v6` adds `identity.robot_id`, `identity.site_id`, labels, probe-degradation threshold and optional p95 cycle budget.
+- Incident bundles, status heartbeats and session reports preserve robot/site identity.
+- Session reports now write `rift.session/v2` while readers remain compatible with v1.
+- `rift replay` filters captured events offline by anomaly, kind, source and time window.
+- `rift compatibility` reports bundle/incident schemas, producer version and integrity.
+- Consecutive probe-error cycles produce recorder-health evidence without automatically becoming robot incidents.
+- `validate-live` can enforce an explicit p95 cycle-time budget.
+- `rift watch` defaults to exit 0 after a successful recording lifecycle; use `--fail-on-incident` for CI gates.
 
-## Current validation target
+## Validation
 
-ROS 2 Jazzy on Ubuntu 24.04.
-
-This release is intentionally read-only. ROS Doctor does not activate lifecycle nodes, rewrite parameters, restart drivers, or command robot motion.
-
-## Known limits
-
-Community v0.7.0 is a first-pass diagnostic tool. It does not yet provide historical TF correlation, QoS reasoning, odometry/localization analysis, Nav2 dependency diagnosis, incident forensics, or rosbag analysis.
+The release is gated by unit tests, the seven-scenario synthetic Community fault lab, the seven-family deterministic Pro benchmark, wheel installation smoke tests and bundle replay/compatibility checks. Real-robot accuracy remains a separate field-validation requirement.

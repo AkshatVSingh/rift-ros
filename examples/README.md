@@ -1,25 +1,13 @@
 # Examples
 
-ROS Doctor does not need a robot-specific package. Add expectations on the command line for the system you are checking.
+`rift-nav2.json` is the current `rift.config/v7` Nav2 template. It is deliberately conservative: edit the expected nodes/topics/transforms for the actual robot before deployment.
 
-For a typical Nav2 setup:
-
-```bash
-ros-doctor scan \
-  --expect-node /amcl \
-  --expect-node /controller_server \
-  --expect-node /planner_server \
-  --expect-topic /scan \
-  --expect-topic /odom \
-  --expect-tf map:odom \
-  --expect-tf odom:base_link
-```
-
-To inspect a specific stream before looking deeper into the stack:
+Commission it with:
 
 ```bash
-ros-doctor hz /scan --seconds 5
-ros-doctor tf map odom --seconds 3
+rift validate-config examples/rift-nav2.json
+rift preflight --config examples/rift-nav2.json
+rift validate-live --config examples/rift-nav2.json --cycles 20
 ```
 
-These examples are deliberately generic. Keep robot/customer-specific checks in your own scripts or configuration rather than committing private system details to a public repository.
+The optional `rosbag_snapshot` section is disabled by default. Enable it only after choosing an explicit topic allow-list and validating storage/memory impact on the target computer.

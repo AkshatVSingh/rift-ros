@@ -1,0 +1,7 @@
+{"evidence": {}, "kind": "topic_rate", "message": "topic rate 49.8 Hz", "severity": "info", "source": "/odom", "tags": [], "ts": 1791096154.901287, "unit": "Hz", "value": 49.8}
+{"evidence": {}, "kind": "topic_rate", "message": "topic rate 15.0 Hz", "severity": "info", "source": "/scan", "tags": [], "ts": 1791096155.001287, "unit": "Hz", "value": 15.0}
+{"evidence": {"minimum_hz": 30.0}, "kind": "topic_rate", "message": "topic rate 11.2 Hz", "severity": "fail", "source": "/odom", "tags": [], "ts": 1791096158.401287, "unit": "Hz", "value": 11.2}
+{"evidence": {}, "kind": "localization_health", "message": "pose covariance increased", "severity": "warn", "source": "/amcl", "tags": ["localization"], "ts": 1791096158.8012872, "unit": "x-baseline", "value": 3.7}
+{"evidence": {}, "kind": "tf_presence", "message": "transform unavailable", "severity": "fail", "source": "map->odom", "tags": ["tf", "localization"], "ts": 1791096159.3012872, "unit": null, "value": false}
+{"evidence": {}, "kind": "nav2_event", "message": "failed to make progress", "severity": "fail", "source": "/controller_server", "tags": ["nav2", "controller"], "ts": 1791096160.6012871, "unit": null, "value": null}
+{"evidence": {}, "kind": "nav2_event", "message": "navigation goal aborted", "severity": "fail", "source": "/bt_navigator", "tags": ["nav2"], "ts": 1791096161.1012871, "unit": null, "value": null}

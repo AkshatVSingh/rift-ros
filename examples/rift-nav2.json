@@ -1,0 +1,81 @@
+{
+  "schema": "rift.config/v7",
+  "profile": "nav2",
+  "namespace": "",
+  "identity": {
+    "robot_id": null,
+    "site_id": null,
+    "labels": {}
+  },
+  "watch": {
+    "window_seconds": 60,
+    "interval_seconds": 5,
+    "duration_seconds": null,
+    "post_trigger_seconds": 10,
+    "startup_grace_seconds": 15,
+    "arm_after_healthy_cycles": 0,
+    "consecutive_failures": 2,
+    "cooldown_seconds": 30,
+    "max_incidents": 50,
+    "trigger_on_warning": false,
+    "output_dir": "rift-incidents",
+    "sample_seconds": 1.2,
+    "workers": 8,
+    "status_file": "rift-status.json",
+    "lock_file": "rift-recorder.lock",
+    "marker_file": "rift-markers.jsonl",
+    "clock_jump_threshold_seconds": 2.0,
+    "probe_degraded_after_cycles": 3,
+    "dedup_window_seconds": 120
+  },
+  "trigger": {
+    "min_events_per_cycle": 1,
+    "operator_markers": false,
+    "exclude_kinds": [
+      "probe_error",
+      "recorder_overrun",
+      "recorder_storage",
+      "clock_jump",
+      "rosbag_sidecar",
+      "recorder_probe_health"
+    ]
+  },
+  "validation": {
+    "max_probe_error_rate": 0.0,
+    "max_overrun_rate": 0.05,
+    "max_failed_cycle_rate": 0.0,
+    "max_p95_cycle_seconds": null
+  },
+  "privacy": {
+    "include_hostname": false
+  },
+  "rosbag_snapshot": {
+    "enabled": false,
+    "topics": [
+      "/tf",
+      "/tf_static",
+      "/rosout",
+      "/odom",
+      "/scan"
+    ],
+    "max_cache_mb": 256,
+    "storage_id": "mcap",
+    "node_name": "rift_rosbag2_recorder",
+    "use_sim_time": false,
+    "startup_timeout_seconds": 8,
+    "snapshot_timeout_seconds": 8,
+    "settle_seconds": 0.4,
+    "keep_failed_session": false
+  },
+  "retention": {
+    "max_saved_incidents": 100,
+    "max_storage_mb": 2048,
+    "min_free_storage_mb": 128
+  },
+  "expectations": {
+    "nodes": [],
+    "topics": [],
+    "transforms": [],
+    "lifecycle": []
+  }
+}
