@@ -1,5 +1,4 @@
-import json
-from pathlib import Path
+﻿import json
 
 import pytest
 
@@ -144,3 +143,4 @@ def test_watch_acquires_lock_before_writing_status(monkeypatch, tmp_path):
         with pytest.raises(RuntimeError, match="another RIFT recorder"):
             watcher.watch(config)
     assert not status.exists()
+

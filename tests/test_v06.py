@@ -1,8 +1,8 @@
-import json
+﻿import json
 
 from rift_ros.catalog import catalog
 from rift_ros.clock import ClockGuard
-from rift_ros.config import config_template, load_config, write_config_template
+from rift_ros.config import config_template, load_config
 from rift_ros.io import write_incident
 from rift_ros.markers import MarkerReader, append_marker
 from rift_ros.migration import upgrade_config_dict
@@ -192,3 +192,4 @@ def test_export_timeline_csv_and_json(tmp_path):
     assert "relative_seconds" in csv_path.read_text()
     payload = json.loads(json_path.read_text())
     assert payload[1]["relative_seconds"] == 1.5
+

@@ -1,9 +1,8 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
 
 from rift_ros.io import read_incident
 from rift_ros.models import Event, Severity
@@ -62,3 +61,4 @@ def write_replay_jsonl(path: str | Path, output: str | Path, filters: ReplayFilt
     records = replay_records(path, filters)
     output.write_text("".join(json.dumps(item, sort_keys=True) + "\n" for item in records), encoding="utf-8")
     return output
+

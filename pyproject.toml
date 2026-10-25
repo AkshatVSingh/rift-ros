@@ -1,10 +1,10 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "rift-ros"
-version = "0.8.0"
+version = "0.8.1"
 description = "Offline-first ROS 2 incident forensics for mobile robots"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -41,3 +41,4 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["F"]
+
