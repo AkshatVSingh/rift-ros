@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rift-ros"
 version = "0.8.2"
-description = "Offline-first ROS 2 incident forensics for mobile robots"
+description = "Offline-first ROS 2 runtime incident forensics and black-box debugging for autonomous robots"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }

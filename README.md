@@ -1,6 +1,6 @@
 # RIFT-ROS
 
-**Runtime Incident Forensics Toolkit for ROS 2.**
+**Offline-first ROS 2 runtime incident forensics, black-box recording, failure analysis, and debugging for autonomous robots.**
 
 RIFT runs beside a ROS 2 robot, keeps a rolling window of deterministic runtime evidence, and preserves what happened before and after a persistent failure as a portable incident bundle.
 
