@@ -91,7 +91,7 @@ Scope a deployment when you create its config:
 rift init-config --profile nav2 \
   --robot-id amr-17 \
   --site-id pune-lab \
-  --label model=dynamo1500 \
+  --label model=Robot/AMR \
   -o rift.json
 ```
 
