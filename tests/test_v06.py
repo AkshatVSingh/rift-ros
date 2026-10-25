@@ -1,4 +1,4 @@
-﻿import json
+import json
 
 from rift_ros.catalog import catalog
 from rift_ros.clock import ClockGuard

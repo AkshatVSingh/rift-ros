@@ -69,7 +69,7 @@ def test_watcher_deduplicates_repeated_same_fault(monkeypatch, tmp_path):
     )
     cfg = watcher.WatchConfig(
         interval_seconds=0.001,
-        duration_seconds=0.02,
+        duration_seconds=1.0,
         post_trigger_seconds=0,
         startup_grace_seconds=0,
         consecutive_failures=1,
